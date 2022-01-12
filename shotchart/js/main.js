@@ -432,6 +432,7 @@ var teamMap = {
     CHA: "Charlotte Hornets",
     CHI: "Chicago Bulls",
     CLE: "Cleveland Cavaliers",
+    DAL: "Dallas Mavericks",
     DEN: "Denver Nuggets",
     DET: "Detroit Pistons",
     GSW: "Golden State Warriors",
@@ -447,7 +448,6 @@ var teamMap = {
     NOP: "New Orleans Pelicans",
     NYK: "New York Knicks",
     OKC: "Oklahoma City Thunder",
-    ORL: "Orlando Magic",
     PHI: "Philadelphia 76ers",
     PHX: "Phoenix Suns",
     POR: "Portland Trail Blazers",
@@ -463,7 +463,7 @@ var teamMap = {
 function renderTooltip(data) {
     tooltip = $("#tooltip");
     tooltip.fadeIn();
-    dataGEGNER = teamMap[data.HTM !== 'DAL' ? data.HTM : data.VTM];
+    dataGEGNER = teamMap[data.HTM !== 'ORL' ? data.HTM : data.VTM];
     dataHeim = data.HTM;
     dataGast = data.VTM;
     dataWurf = data.SHOT_MADE_FLAG;
