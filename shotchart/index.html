@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Dirk Nowitzki - alle Würfe aus 20 Jahren NBA</title>
+    <meta name="description"
+        content="26.376 Würfe hat Dirk Nowitzki in seiner einzigartigen NBA-Karriere genommen. Hier könnt ihr euch jeden einzelnen Wurf anzeigen lassen.">
+    <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" type="image/png" href="/user/themes/rp-interaktiv/assets/img/favicons/favicon-32x32.png"
+        sizes="32x32">
+    <link rel="icon" type="image/png" href="/user/themes/rp-interaktiv/assets/img/favicons/favicon-194x194.png"
+        sizes="194x194">
+    <link rel="icon" type="image/png" href="/user/themes/rp-interaktiv/assets/img/favicons/favicon-96x96.png"
+        sizes="96x96">
+    <meta property="fb:app_id" content="260490104300780">
+    <meta property="og:site_name" content="interaktiv.rp-online.de/ig/19/dirk-nowizki-career-shotchart/">
+    <meta property="og:title" content="Dirk Nowitzki - alle 26.376 Würfe aus 20 Jahren NBA">
+    <meta property="og:description"
+        content="26.376 Würfe hat Dirk Nowitzki in seiner einzigartigen NBA-Karriere genommen. Hier könnt ihr euch jeden einzelnen Wurf anzeigen lassen.">
+    <meta property="og:url" content="rp-online.de/ig/19/dirk-nowizki-career-shotchart/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://interaktiv.rp-online.de/ig/19/dirk-nowitzki-career-shotchart/teaser.png">
+    <meta name="twitter:card" content=" summary_large_image">
+    <meta name="twitter:site" content="@rponline">
+    <meta name="twitter:title" content="Dirk Nowitzki - alle Würfe aus 20 Jahren NBA">
+    <meta name="twitter:description"
+        content="26.376 Mal hat @swish41 für die @mavs auf den Korb geworfen. Hier ist jeder einzelne davon. #MFFL">
+    <meta name="twitter:image" content="https://interaktiv.rp-online.de/ig/19/dirk-nowitzki-career-shotchart/teaser.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/spin.min.js" charset="utf-8"></script>
+    <script src="js/leaflet.spin.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-2696235-47', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <div class="topnav" id="layerControl">
+        <div class="logoBox">
+            <a href="/"><img src="img/rp-logo.svg" alt="rp-logo" class="logo" /></a>
+        </div>
+        <div class="flex-grid">
+
+            <a href="javascript:void(0);" class="icon" onclick="mobilemenu()">
+                <i class="fa fa-bars"><span>Menü</span></i>
+            </a>
+            <div class="mobilemenu">
+                <div class="col legend">
+                    <div id="legend" class="legend">
+                        <p>
+                            <span class="legend-label"><span class="made"></span>Getroffen</span>
+                            <span class="legend-label"><span class="missed"></span>Verworfen</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col all">
+                    <div class="all">
+                        <button class="all" id="all">Reset</button>
+                    </div>
+                </div>
+                <div class="col shotresult">
+                    <select name="shotresult" id="shotresult" class="shotresult">
+                        <option value="">Alle Würfe</option>
+                        <option value="1">Getroffen</option>
+                        <option value="0">Verworfen</option>
+                    </select>
+                </div>
+                <div class="col opponent">
+                    <select name="opponent" id="opponent" class="opponent">
+                        <option value="">Alle Gegner</option>
+                        <option value="ATL">Atlanta Hawks </option>
+                        <option value="BKN">Brooklyn Nets </option>
+                        <option value="BOS">Boston Celtics </option>
+                        <option value="CHA">Charlotte Hornets </option>
+                        <option value="CHI">Chicago Bulls </option>
+                        <option value="CLE">Cleveland Cavaliers </option>
+                        <option value="DEN">Denver Nuggets </option>
+                        <option value="DET">Detroit Pistons </option>
+                        <option value="GSW">Golden State Warriors </option>
+                        <option value="HOU">Houston Rockets </option>
+                        <option value="IND">Indiana Pacers </option>
+                        <option value="LAC">Los Angeles Clippers </option>
+                        <option value="LAL">Los Angeles Lakers </option>
+                        <option value="MEM">Memphis Grizzlies </option>
+                        <option value="MIA">Miami Heat </option>
+                        <option value="MIL">Milwaukee Bucks </option>
+                        <option value="MIN">Minnesota Timberwolves </option>
+                        <option value="NJN">New Jersey Nets </option>
+                        <option value="NOP">New Orleans Pelicans</option>
+                        <option value="NYK">New York Knicks </option>
+                        <option value="OKC">Oklahoma City Thunder </option>
+                        <option value="ORL">Orlando Magic </option>
+                        <option value="PHI">Philadelphia 76ers </option>
+                        <option value="PHX">Phoenix Suns </option>
+                        <option value="POR">Portland Trail Blazers </option>
+                        <option value="SAC">Sacramento Kings </option>
+                        <option value="SAS">San Antonio Spurs </option>
+                        <option value="SEA">Seattle SuperSonics (bis 2008)</option>
+                        <option value="TOR">Toronto Raptors </option>
+                        <option value="UTA">Utah Jazz </option>
+                        <option value="VAN">Vancouver Grizzlies (bis 2001)</option>
+                        <option value="WAS">Washington Wizards </option>
+                    </select>
+                </div>
+                <div class="col season">
+                    <div class="season">
+                        <select name="season" id="S" class="season">
+                            <option value="">Alle Jahre</option>
+                            <option value="1998-99">1998-1999</option>
+                            <option value="1999-00">1999-2000</option>
+                            <option value="2000-01">2000-2001</option>
+                            <option value="2001-02">2001-2002</option>
+                            <option value="2002-03">2002-2003</option>
+                            <option value="2003-04">2003-2004</option>
+                            <option value="2004-05">2004-2005</option>
+                            <option value="2005-06">2005-2006</option>
+                            <option value="2006-07">2006-2007</option>
+                            <option value="2007-08">2007-2008</option>
+                            <option value="2008-09">2008-2009</option>
+                            <option value="2009-10">2009-2010</option>
+                            <option value="2010-11">2010-2011</option>
+                            <option value="2011-12">2011-2012</option>
+                            <option value="2012-13">2012-2013</option>
+                            <option value="2013-14">2013-2014</option>
+                            <option value="2014-15">2014-2015</option>
+                            <option value="2015-16">2015-2016</option>
+                            <option value="2016-17">2016-2017</option>
+                            <option value="2017-18">2017-2018</option>
+                            <option value="2018-19">2018-2019</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col gametype">
+                    <div class="gametype">
+                        <select name="gametype" id="gametype" class="gametype">
+                            <option value="">Alle Spiele</option>
+                            <option value="R">Haupt-Saison</option>
+                            <option value="P">Playoffs</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col bestgame">
+                    <div class="bestgame">
+                        <button type="button" id="bestgame" class="bestgame"><span>Bestes Spiel</span></button>
+                        <p>2004: 53 Punkte gegen die Houston Rockets</p>
+                    </div>
+                </div>
+                <div class="col finals">
+                    <div class="finals">
+                        <button type="button" id="finals" class="finals"><span>Meister-Würfe </span></button>
+                        <p>2011: Alle Würfe der Final-Serie gegen Miami.</p>
+                    </div>
+                </div>
+                <div class="col buzzer">
+                    <div class="buzzer">
+                        <button type="button" id="buzzer" class="buzzer"><span>Buzzer-Beater</span></button>
+                        <p>Alle Würfe in der Schlusssekunde</p>
+                    </div>
+                </div>
+                <div class="col firstshot">
+                    <div class="firstshot">
+                        <button type="button" id="firstshot" class="firstshot"><span>Erstes Spiel</span></button>
+                        <p>1999 gegen die Seattle Super Sonics.</p>
+                    </div>
+                </div>
+                <div class="col lastshot">
+                    <div class="lastshot">
+                        <button type="button" id="lastshot" class="lastshot"><span>Letztes Spiel</span></button>
+                        <p>2019 gegen die San Antonio Spurs.</p>
+                    </div>
+                </div>
+                <div class="col buttonBox">
+                    <div class="buttonBox">
+                        <button class="backButton">Zurück zum Artikel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="map"></div>
+    <div id="tooltip">
+        <button id="close-desktop">Schliessen</button>
+        <button id="close">Schliessen</button>
+        <div class="content">
+            <div class="infos">
+                <div class="container">
+                    <div class="head">
+                        <span class="zeile Wurf">
+                        </span>
+                        <span class="unterzeile Typ">
+                        </span>
+                    </div>
+                </div>
+                <div class="werte">
+                    <ul>
+                        <li id="gegner">
+                            <span class="beschreibung">Gegner:</span>
+                            <span class="Gegner"></span>
+                            <span class="Heimspiel"></span>
+                        </li>
+                        <li id="hell">
+                            <span class="beschreibung">Saison-Typ:</span>
+                            <span class="Spiel"></span>
+                        </li>
+                        <li id="saison">
+                            <span class="beschreibung">Saison:</span>
+                            <span class="Saison"></span>
+                        </li>
+                        <li id="hell">
+                            <span class="beschreibung">Datum:</span>
+                            <span class="Datum"></span>
+                        </li>
+                        <li id="zeit">
+                            <span class="beschreibung">Restzeit:</span>
+                            <span class="Spielzeit"></span><span> Minuten im </span>
+                            <span class="Viertel"></span><span>.Viertel</span>
+                        </li>
+                        <li id="hell">
+                            <span class="beschreibung">Entfernung:</span>
+                            <span class="Entfernung"></span><span> Meter</span>
+                        </li>
+                        <li id="link">
+                            <span class="link">
+                                <a href="" target="_blank">Details zum Spiel</a>
+                            </span>
+                        </li>
+                        <li id="video">
+                            <span class="video-link">
+                                <iframe src="" allow="fullscreen"></iframe>                                
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="greetingOverlay">
+        <div class="wrapper">
+            <span class="leader">Grafik</span>
+            <h1>Alle 26.376 Würfe von Dirk Nowitzki</h1>
+            <span class="readmore">
+                <span>So funktioniert's</span>
+                <i class="fa fa-caret-down" aria-hidden="true"></i><i class="fa fa-caret-up" aria-hidden="true"></i>
+            </span>
+            <div class="more-box">
+            <p>Auf den ersten Blick sehen Sie alle Würfe. Aufgrund der Datengröße, bitten wir Sie für die Ladezeit um einige Sekunden Geduld.<span class="desktop">In der Navigation auf der linken Seite können Sie die alle Würfe filtern: nach Saison, Gegner oder besonderen Momenten.</span> <span class="mobile"> Im Menü oben rechts können Sie die alle Würfe filtern: nach Saison, Gegner oder besonderen Momenten.</span>Getroffene Würfe werden als blaue Punkte dargestellt, verworfene als gelbe Punkte.</p>
+            </div>
+            <p>26.376 Würfe hat Dirk Nowitzki in seiner einzigartigen NBA-Karriere genommen. Hier können Sie sich jeden einzelnen anzeigen lassen.
+            </p>
+            <p>Bitte haben Sie für das Laden der kompletten Daten einige Sekunden Geduld.</p>
+            <button class="more">Karte Starten</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
