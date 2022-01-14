@@ -1,7 +1,7 @@
 if ($(window).width() >= 1024) {
     var startzoom = 20;
 } else {
-    var startzoom = 28;
+    var startzoom = 24;
 }
 
 var map = L.map('map', {
@@ -92,7 +92,7 @@ function addFeatureBlock(_this, features) {
     }
 }
 
-var url = 'https://raw.githubusercontent.com/clemens-boisseree/wagner_watch/main/franz.json';
+var url = '/data/franz.json';
 
 
 L.TopoJSON = L.GeoJSON.extend({
